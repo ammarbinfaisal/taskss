@@ -1,0 +1,19 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "a todo terminal app",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "configstore": "^4.0.0",
+    "inquirer": "^6.2.2",
+    "lodash": "^4.17.11",
+    "meow": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
