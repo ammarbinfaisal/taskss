@@ -14,13 +14,13 @@ const questions = [
 		type: 'input',
 		name: 'group',
 		message: 'group: ',
-		default: "general"
+		default: 'general'
 	},
 	{
 		type: 'input',
 		name: 'deadline',
-        message: 'deadline: ',
-        validate: input => /^\dd$/.test(input)
+		message: 'deadline: ',
+		validate: input => /^\dd$/.test(input)
 	}
 ];
 
