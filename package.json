@@ -12,11 +12,12 @@
     "update-notifier": "^2.5.0"
   },
   "devDependencies": {
-    "husky": "*"
+    "husky": "*",
+    "xo": "*"
   },
   "scripts": {
-    "format": "prettier --write *.js */*.js",
-    "prettier": "prettier --write *.js */*.js"
+    "format": "xo --fix",
+    "prettier": "xo --fix"
   },
   "husky": {
     "hooks": {
