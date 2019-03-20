@@ -8,11 +8,20 @@
     "configstore": "^4.0.0",
     "inquirer": "^6.2.2",
     "lodash": "^4.17.11",
-    "meow": "^5.0.0"
+    "meow": "^5.0.0",
+    "update-notifier": "^2.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write *.js */*.js",
+    "prettier": "prettier --write *.js */*.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
   },
   "author": "",
   "license": "ISC"
