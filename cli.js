@@ -7,7 +7,7 @@ const tasks = require('.');
 // updateNotifier({pkg}).notify();
 
 const cli = meow(
-	`
+    `
     Usage
       $ tasks <input>
  
@@ -17,18 +17,22 @@ const cli = meow(
     Examples
       $ tasks --new
 `,
-	{
-		flags: {
-			new: {
-				type: 'boolean',
-				alias: 'n'
-			},
-			edit: {
-				type: 'integer',
-				alias: 'e'
-			}
-		}
-	}
+    {
+        flags: {
+            new: {
+                type: 'boolean',
+                alias: 'n'
+            },
+            edit: {
+                type: 'integer',
+                alias: 'e'
+            },
+            delete: {
+                type: 'integer',
+                alias: 'd'
+            }
+        }
+    }
 );
 
 tasks(cli.input[0], cli.flags);
