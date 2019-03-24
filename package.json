@@ -16,8 +16,10 @@
     "xo": "*"
   },
   "scripts": {
-    "format": "xo --fix",
-    "prettier": "xo --fix"
+    "xo": "xo --fix",
+    "fix": "npm run xo",
+    "prettier": "prettier --write *.js utils/* lib/*",
+    "format": "npm run prettier"
   },
   "husky": {
     "hooks": {
