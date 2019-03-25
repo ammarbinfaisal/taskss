@@ -3,7 +3,7 @@ best terminal integrated todo list application
   
 _:warning: isn't complte right now_
 
-![preview]("https://github.com/ammarbinfaisal/tasks/blob/master/preview.gif?raw=true")
+![preview]("https://raw.githubusercontent.com/ammarbinfaisal/tasks/master/preview.gif")
 
 ## usage
 `node cli.js -n` to add a new task  
