@@ -1,8 +1,8 @@
-const { createNewTask, listTasks, editTask, deleteTask } = require('./lib');
+const { createTask, listTasks, editTask, deleteTask } = require('./lib');
 
 module.exports = (input, flags) => {
     if (flags.new) {
-        createNewTask();
+        createTask();
     } else if (flags.edit) {
         editTask(flags.edit);
     } else if (flags.delete) {
