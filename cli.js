@@ -12,9 +12,12 @@ const cli = meow(
       $ tasks <input>
  
     Options
-      --new,  -n  add a new task
+      --new,    -n  add a new task
+      --edit,   -e  edit a task
+      --delete, -d  delte a task
 
     Examples
+      $ tasks
       $ tasks --new
 `,
     {
