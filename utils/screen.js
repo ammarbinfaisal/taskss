@@ -30,7 +30,7 @@ const init = () => {
 let _x = 0,
     _y = 0;
 
-// default params so that function can be called no no params
+// default params so that function can be called without params
 // assigining _x and _y the value passed so that position of cursor can be known by the program
 const cursorTo = (x = _x, y = _y) => {
     _x = x;
