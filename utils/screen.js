@@ -1,6 +1,7 @@
 const readline = require('readline');
 const chalk = require('chalk');
 const stdin = process.openStdin();
+const log = require('./log');
 
 if (typeof process.screen === 'undefined') {
     process.screen = {};
@@ -26,7 +27,34 @@ const init = () => {
     }
 };
 
-const cursorTo = (x = 0, y = 0) => readline.cursorTo(process.stdout, x, y);
+let _x = 0,
+    _y = 0;
+
+// default params so that function can be called no no params
+// assigining _x and _y the value passed so that position of cursor can be known by the program
+const cursorTo = (x = _x, y = _y) => {
+    _x = x;
+    _y = y;
+    readline.cursorTo(process.stdout, x, y);
+};
+
+const nextLine = () => readline.cursorTo(process.stdout, _x, ++_y);
+
+const moveRight = (rightSpaces = 1) => {
+    if (rightSpaces === 0) cursorTo();
+    else {
+        _x++;
+        moveRight(--rightSpaces);
+    }
+};
+
+const moveLeft = (leftSpaces = 1) => {
+    if (leftSpaces === 0) cursorTo();
+    else {
+        _x--;
+        moveLeft(--leftSpaces);
+    }
+};
 
 const addListener = (eventname, cb) => stdin.addListener(eventname, cb);
 
@@ -34,4 +62,8 @@ const removeListener = (eventname, cb) => stdin.removeListener(eventname, cb);
 
 const write = str => process.stdout.write(str);
 
-module.exports = { init, cursorTo, write, addListener, removeListener };
+const getX = () => _x;
+
+const getY = () => _y;
+
+module.exports = { init, cursorTo, nextLine, moveRight, moveLeft, write, addListener, removeListener, getX, getY };
