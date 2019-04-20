@@ -33,6 +33,8 @@ let _x = 0,
 // default params so that function can be called without params
 // assigining _x and _y the value passed so that position of cursor can be known by the program
 const cursorTo = (x = _x, y = _y) => {
+    x = Math.round(x);
+    y = Math.round(y);
     _x = x;
     _y = y;
     readline.cursorTo(process.stdout, x, y);
