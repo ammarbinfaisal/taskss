@@ -6,7 +6,8 @@ module.exports = (input, flags) => {
     } else if (flags.edit) {
         editTask(flags.edit);
     } else if (flags.delete) {
-        deleteTask(flags.delete);
+        if (!deleteTask(flags.delete)) console.log(chalk.grey('\n:( no task with that index exists.\n'));
+        process.exit();
     } else {
         listTasks();
     }
