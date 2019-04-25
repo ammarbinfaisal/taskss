@@ -1,10 +1,10 @@
 'use strict';
 const meow = require('meow');
 const tasks = require('.');
-// Const updateNotifier = require('update-notifier');
-// const pkg = require('./package.json');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
 
-// updateNotifier({pkg}).notify();
+updateNotifier({pkg}).notify();
 
 const cli = meow(
     `
