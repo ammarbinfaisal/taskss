@@ -1,6 +1,6 @@
 {
   "name": "tasks",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a todo terminal app",
   "main": "index.js",
   "dependencies": {
@@ -25,6 +25,6 @@
       "pre-commit": "npm run format"
     }
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Malik Ammar Faisal",
+  "license": "gpl-3.0"
 }
