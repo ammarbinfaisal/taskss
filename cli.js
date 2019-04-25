@@ -4,7 +4,7 @@ const tasks = require('.');
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
 
-updateNotifier({pkg}).notify();
+updateNotifier({ pkg }).notify();
 
 const cli = meow(
     `
