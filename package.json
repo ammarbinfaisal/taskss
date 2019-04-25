@@ -1,5 +1,5 @@
 {
-  "name": "tasks",
+  "name": "taskss",
   "version": "0.0.1",
   "description": "a todo terminal app",
   "main": "index.js",
@@ -25,6 +25,10 @@
       "pre-commit": "npm run format"
     }
   },
+  "bin": {
+    "taskss": "./cli.js"
+  },
   "author": "Malik Ammar Faisal",
-  "license": "gpl-3.0"
+  "license": "GPL-3.0-only"
 }
+
