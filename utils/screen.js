@@ -3,30 +3,6 @@ const chalk = require('chalk');
 const stdin = process.openStdin();
 const log = require('./log');
 
-if (typeof process.screen === 'undefined') {
-    process.screen = {};
-    process.screen.INITIALIZED = false;
-}
-const init = () => {
-    if (process.screen && !process.screen.INITIALIZED) {
-        process.screen.INITIALIZED = true;
-        if (stdin.isTTY) stdin.setRawMode(true);
-        else {
-            console.log(chalk.grey("\n\tit's not tty\n"));
-            process.exit();
-        }
-
-        readline.emitKeypressEvents(stdin);
-
-        stdin.on('keypress', (chunk, key) => {
-            if (key && key.ctrl && key.name === 'c') {
-                console.clear();
-                process.exit();
-            }
-        });
-    }
-};
-
 let _x = 0,
     _y = 0;
 
@@ -68,4 +44,52 @@ const getX = () => _x;
 
 const getY = () => _y;
 
-module.exports = { init, cursorTo, nextLine, moveRight, moveLeft, write, addListener, removeListener, getX, getY };
+const showTitle = () => {
+    cursorTo((process.stdout.columns - 5) / 2, 0);
+    write(chalk.bold('TASKS'));
+    nextLine();
+    cursorTo(0);
+};
+
+const clear = () => {
+    console.clear();
+    showTitle();
+};
+
+if (typeof process.screen === 'undefined') {
+    process.screen = {};
+    process.screen.INITIALIZED = false;
+}
+const init = () => {
+    if (process.screen && !process.screen.INITIALIZED) {
+        process.screen.INITIALIZED = true;
+        if (stdin.isTTY) stdin.setRawMode(true);
+        else {
+            console.log(chalk.grey("\n\tit's not tty\n"));
+            process.exit();
+        }
+
+        readline.emitKeypressEvents(stdin);
+
+        stdin.on('keypress', (chunk, key) => {
+            if (key && key.ctrl && key.name === 'c') {
+                console.clear();
+                process.exit();
+            }
+        });
+    }
+};
+
+module.exports = {
+    init,
+    clear,
+    cursorTo,
+    nextLine,
+    moveRight,
+    moveLeft,
+    write,
+    addListener,
+    removeListener,
+    getX,
+    getY
+};
