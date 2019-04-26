@@ -46,7 +46,7 @@ const getY = () => _y;
 
 const showTitle = () => {
     cursorTo((process.stdout.columns - 5) / 2, 0);
-    write(chalk.bold('TASKS'));
+    write(chalk.bold('TASKSS'));
     nextLine();
     cursorTo(0);
 };
