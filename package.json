@@ -1,6 +1,6 @@
 {
   "name": "taskss",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.1",
   "description": "a todo terminal app",
   "main": "index.js",
   "dependencies": {
@@ -31,4 +31,3 @@
   "author": "Malik Ammar Faisal",
   "license": "GPL-3.0-only"
 }
-
