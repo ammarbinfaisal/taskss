@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
-const meow = require('meow');
+
 const tasks = require('.');
+const meow = require('meow');
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
 
