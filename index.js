@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 const { createTask, listTasks, editTask, deleteTask } = require('./lib');
 
 module.exports = (input, flags) => {
