@@ -1,7 +1,6 @@
 const readline = require('readline');
 const chalk = require('chalk');
 const stdin = process.openStdin();
-const log = require('./log');
 
 let _x = 0,
     _y = 0;
@@ -47,12 +46,21 @@ const getY = () => _y;
 const showTitle = () => {
     cursorTo((process.stdout.columns - 5) / 2, 0);
     write(chalk.bold('TASKSS'));
-    nextLine();
     cursorTo(0);
 };
 
 const clear = () => {
-    console.clear();
+    let rows = process.stdout.rows;
+    let stringToClearTheScreen = '';
+    cursorTo(0, 0);
+    while (--rows) {
+        let columns = process.stdout.columns;
+        while (--columns) {
+            stringToClearTheScreen += ' ';
+        }
+        stringToClearTheScreen += '\n';
+    }
+    process.stdout.write(stringToClearTheScreen);
     showTitle();
 };
 
@@ -71,9 +79,16 @@ const init = () => {
 
         readline.emitKeypressEvents(stdin);
 
+        let rows = process.stdout.rows - 2;
+        let stringToClearTheScreen = '';
+        while (--rows) {
+            stringToClearTheScreen += '\n';
+        }
+        process.stdout.write(stringToClearTheScreen);
+
         stdin.on('keypress', (chunk, key) => {
             if (key && key.ctrl && key.name === 'c') {
-                console.clear();
+                clear(false);
                 process.exit();
             }
         });
