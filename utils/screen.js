@@ -39,10 +39,6 @@ const removeListener = (eventname, cb) => stdin.removeListener(eventname, cb);
 
 const write = str => process.stdout.write(str);
 
-const getX = () => _x;
-
-const getY = () => _y;
-
 const showTitle = () => {
     cursorTo((process.stdout.columns - 5) / 2, 0);
     write(chalk.bold('TASKSS'));
@@ -104,7 +100,17 @@ module.exports = {
     moveLeft,
     write,
     addListener,
-    removeListener,
-    getX,
-    getY
+    removeListener
 };
+
+Object.defineProperty(module.exports, 'x', {
+    get() {
+        return _x;
+    }
+});
+
+Object.defineProperty(module.exports, 'y', {
+    get() {
+        return _y;
+    }
+});
