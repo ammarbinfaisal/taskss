@@ -46,7 +46,7 @@ const showTitle = () => {
 	cursorTo(0);
 };
 
-const clear = () => {
+const clear = dontShowTitle => {
 	let { rows } = process.stdout;
 	let stringToClearTheScreen = '';
 	cursorTo(0, 0);
@@ -60,6 +60,7 @@ const clear = () => {
 	}
 
 	process.stdout.write(stringToClearTheScreen);
+	if (dontShowTitle) return;
 	showTitle();
 };
 
