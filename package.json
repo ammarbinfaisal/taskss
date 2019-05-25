@@ -1,6 +1,6 @@
 {
   "name": "taskss",
-  "version": "0.0.1-alpha.1",
+  "version": "0.1.0",
   "description": "a todo terminal app",
   "main": "index.js",
   "dependencies": {
