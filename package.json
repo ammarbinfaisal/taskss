@@ -15,18 +15,23 @@
     "xo": "*"
   },
   "scripts": {
-    "xo": "xo --fix",
+    "xo": "xo --fix --prettier",
     "fix": "npm run xo",
     "prettier": "prettier --write *.js utils/* lib/*",
     "format": "npm run prettier"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format"
+      "pre-commit": "npm run fix"
     }
   },
   "bin": {
     "taskss": "./cli.js"
+  },
+  "xo": {
+    "rules": {
+      "unicorn/no-process-exit": "off"
+    }
   },
   "author": "Malik Ammar Faisal",
   "license": "GPL-3.0-only"
