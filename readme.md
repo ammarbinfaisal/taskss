@@ -1,10 +1,10 @@
 # taskss
-best terminal integrated todo list application
+manage your tasks from the comfort of your terminal
   
 <img src="https://raw.githubusercontent.com/ammarbinfaisal/tasks/master/preview.gif"/>  
 
 ## install
-`npm install taskss`
+`npm install -g taskss`
 
 ## usage
 `taskss -n` to add a new task  
