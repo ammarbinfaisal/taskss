@@ -69,7 +69,7 @@ const init = () => {
 		readline.emitKeypressEvents(stdin);
 
 		stdin.on('keypress', (chunk, key) => {
-			if (key && key.ctrl && key.name === 'c') {
+			if (key && ((key.ctrl && key.name === 'c') || key.name === 'escape')) {
 				clear(false);
 				process.exit();
 			}
