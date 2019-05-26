@@ -47,19 +47,7 @@ const showTitle = () => {
 };
 
 const clear = dontShowTitle => {
-	let { rows } = process.stdout;
-	let stringToClearTheScreen = '';
-	cursorTo(0, 0);
-	while (--rows) {
-		let { columns } = process.stdout;
-		while (--columns) {
-			stringToClearTheScreen += ' ';
-		}
-
-		stringToClearTheScreen += '\n';
-	}
-
-	process.stdout.write(stringToClearTheScreen);
+	console.clear();
 	if (dontShowTitle) return;
 	showTitle();
 };
@@ -79,14 +67,6 @@ const init = () => {
 		}
 
 		readline.emitKeypressEvents(stdin);
-
-		let rows = process.stdout.rows - 2;
-		let stringToClearTheScreen = '';
-		while (--rows) {
-			stringToClearTheScreen += '\n';
-		}
-
-		process.stdout.write(stringToClearTheScreen);
 
 		stdin.on('keypress', (chunk, key) => {
 			if (key && key.ctrl && key.name === 'c') {
