@@ -35,6 +35,14 @@ const cli = meow(
 			delete: {
 				type: 'integer',
 				alias: 'd'
+			},
+			task: {
+				type: 'string',
+				alias: 't'
+			},
+			group: {
+				type: 'string',
+				alias: 'g'
 			}
 		}
 	}
