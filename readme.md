@@ -21,9 +21,7 @@ press `t` over any task to tick it
 
 ## Changelog
 
-- whole of the terminal isn't cleared o running taskss
-- readjustment of the ui in list mode on resizing the terminal  
-- arrow remains on the same index after deleting a task in list mode
-- TASKSS title in the list and editor mode
-- improved tasks editor
-- no unwanted .log file in the current directory
+- fix task editor (typing issue)
+- console.clear() is again being used - to prevent the terminal from getting messed up on resizing  -- so whole of the terminal will be cleared :( 
+- escaoe key can be used for quiting
+- fix position of "save"/"cant be blank" message in task editor
