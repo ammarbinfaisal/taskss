@@ -11,16 +11,16 @@ updateNotifier({ pkg }).notify();
 const cli = meow(
 	`
     Usage
-      $ tasks <input>
+      $ taskss <input>
  
     Options
       --new,    -n  add a new task
       --edit,   -e  edit a task
-      --delete, -d  delte a task
+      --delete, -d  delete a task
 
     Examples
-      $ tasks
-      $ tasks --new
+      $ taskss
+      $ taskss --new
 `,
 	{
 		flags: {
