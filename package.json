@@ -34,5 +34,16 @@
     }
   },
   "author": "Malik Ammar Faisal",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammarbinfaisal/taskss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ammarbinfaisal/taskss/issues"
+  },
+  "homepage": "https://github.com/ammarbinfaisal/taskss#readme"
 }
