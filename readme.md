@@ -11,7 +11,7 @@ manage your tasks from the comfort of your terminal
 ## Usage
 
 `taskss -n` to add a new task  
-`taskss -t <task-name> -g <group-name>` short way to add a task
+`taskss -t <task-name> -g <group-name>` short way to add a task  
 `taskss -e <task-number>` to edit a task with specific index  
 `taskss -d <task-number>` to delete a task with specific index   
 <br><hr>
