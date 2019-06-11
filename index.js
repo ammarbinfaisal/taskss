@@ -3,7 +3,10 @@ const chalk = require('chalk');
 const { createTask, listTasks, editTask, deleteTask } = require('./lib');
 
 module.exports = (input, flags) => {
-	if (flags.new) {
+	if (flags.task) {
+		createTask(flags.task, flags.group);
+		process.exit();
+	} else if (flags.new) {
 		createTask();
 	} else if (flags.edit) {
 		editTask(flags.edit);
