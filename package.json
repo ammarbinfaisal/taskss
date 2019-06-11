@@ -46,5 +46,10 @@
     "url": "https://github.com/ammarbinfaisal/taskss/issues"
   },
   "homepage": "https://github.com/ammarbinfaisal/taskss#readme",
-  "keywords": ["todoapp", "todo", "terminal-based", "terminal-app"]
+  "keywords": [
+    "todoapp",
+    "todo",
+    "terminal-based",
+    "terminal-app"
+  ]
 }
