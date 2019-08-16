@@ -52,29 +52,20 @@ const clear = dontShowTitle => {
 	showTitle();
 };
 
-if (typeof process.screen === 'undefined') {
-	process.screen = {};
-	process.screen.INITIALIZED = false;
-}
-
 const init = () => {
-	if (process.screen && !process.screen.INITIALIZED) {
-		process.screen.INITIALIZED = true;
-		if (stdin.isTTY) stdin.setRawMode(true);
-		else {
-			console.log(chalk.grey("\n\tit's not tty\n"));
+	if (stdin.isTTY) stdin.setRawMode(true);
+	else {
+		console.log(chalk.grey("\n\tit's not tty\n"));
+		process.exit();
+	}
+
+	readline.emitKeypressEvents(stdin);
+	stdin.on('keypress', (chunk, key) => {
+		if (key && key.ctrl && key.name === 'c') {
+			clear(false);
 			process.exit();
 		}
-
-		readline.emitKeypressEvents(stdin);
-
-		stdin.on('keypress', (chunk, key) => {
-			if (key && key.ctrl && key.name === 'c') {
-				clear(false);
-				process.exit();
-			}
-		});
-	}
+	});
 };
 
 module.exports = {
