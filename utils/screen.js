@@ -19,16 +19,18 @@ const cursorTo = (x = _x, y = _y) => {
 const nextLine = () => readline.cursorTo(process.stdout, _x, ++_y);
 
 const moveRight = (rightSpaces = 1) => {
-	if (rightSpaces === 0) cursorTo();
-	else {
+	if (rightSpaces === 0) {
+		cursorTo();
+	} else {
 		_x++;
 		moveRight(--rightSpaces);
 	}
 };
 
 const moveLeft = (leftSpaces = 1) => {
-	if (leftSpaces === 0) cursorTo();
-	else {
+	if (leftSpaces === 0) {
+		cursorTo();
+	} else {
 		_x--;
 		moveLeft(--leftSpaces);
 	}
@@ -48,14 +50,18 @@ const showTitle = () => {
 
 const clear = dontShowTitle => {
 	console.clear();
-	if (dontShowTitle) return;
+	if (dontShowTitle) {
+		return;
+	}
+
 	showTitle();
 };
 
 const init = () => {
-	if (stdin.isTTY) stdin.setRawMode(true);
-	else {
-		console.log(chalk.grey("\n\tit's not tty\n"));
+	if (stdin.isTTY) {
+		stdin.setRawMode(true);
+	} else {
+		console.log(chalk.grey('\n\tit\'s not tty\n'));
 		process.exit();
 	}
 

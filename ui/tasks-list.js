@@ -3,21 +3,20 @@ const Configstore = require('configstore');
 const datastore = new Configstore('tasks');
 const chalk = require('chalk');
 const screen = require('../utils/screen');
-const edittask = require('./edit-tasks');
-const deletetask = require('./delete-task');
+const deletetask = require('../lib/delete-task');
+const edittask = require('./tasks-editor');
 
 let allowedLines;
 let linesMapppedToIndex;
 
 const display = tasks => {
 	linesMapppedToIndex = {};
-	screen.init();
 	if (tasks && tasks[0]) {
 		screen.clear();
 		const grouped = {};
 		tasks.forEach((task, i) => {
 			if (task) {
-				const { group } = task;
+				const {group} = task;
 				if (group) {
 					if (!grouped[group]) {
 						grouped[group] = [];
@@ -41,8 +40,12 @@ const display = tasks => {
 					const _y = screen.y;
 					linesMapppedToIndex[`${_y}`] = task.index;
 					screen.cursorTo(process.stdout.columns - 4);
-					if (task.done) screen.write(chalk.green.bold('✔'));
-					else screen.write(chalk.green.bold('☐'));
+					if (task.done) {
+						screen.write(chalk.green.bold('✔'));
+					} else {
+						screen.write(chalk.green.bold('☐'));
+					}
+
 					screen.cursorTo(_x);
 					screen.nextLine();
 				});
@@ -54,15 +57,18 @@ const display = tasks => {
 		allowedLines = Object.keys(linesMapppedToIndex);
 	} else {
 		screen.clear(true);
-		screen.cursorTo(0, 0);
-		screen.write(chalk.grey('\n\t:( There are no tasks currently scheduled.\n'));
 		process.exit();
 	}
 };
 
 module.exports = () => {
 	let tasks = datastore.get('tasks');
-	display(tasks);
+	if (!tasks || !tasks[0]) {
+		screen.write(chalk.grey('\n\t:( There are no tasks currently scheduled.\n\n'));
+		process.exit();
+	} else {
+		display(tasks);
+	}
 
 	let index = 0;
 	const arrowTo = (newindex = index) => {
@@ -89,6 +95,7 @@ module.exports = () => {
 	function escapeHandler(chunk, key) {
 		if (key && key.name === 'escape') {
 			screen.clear();
+			tasks = datastore.get('tasks');
 			display(tasks);
 			arrowTo();
 			screen.addListener('keypress', keypressHandler);
