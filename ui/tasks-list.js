@@ -16,7 +16,7 @@ const display = tasks => {
 		const grouped = {};
 		tasks.forEach((task, i) => {
 			if (task) {
-				const {group} = task;
+				const { group } = task;
 				if (group) {
 					if (!grouped[group]) {
 						grouped[group] = [];

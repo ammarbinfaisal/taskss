@@ -1,16 +1,16 @@
 const chalk = require('chalk');
 
 const screen = require('./utils/screen');
-const {addTask, deleteTask} = require('./lib');
-const {newTask, showTasksEditor, listTasks} = require('./ui');
+const { addTask, deleteTask } = require('./lib');
+const { newTask, showTasksEditor, listTasks } = require('./ui');
 
 module.exports = async (input, flags) => {
 	if (flags.task) {
-		const {task, group} = flags;
+		const { task, group } = flags;
 		addTask(task, group);
 		process.exit();
 	} else if (flags.new) {
-		const {task, group} = await newTask();
+		const { task, group } = await newTask();
 		addTask(task, group);
 		process.exit();
 	} else if (flags.edit) {

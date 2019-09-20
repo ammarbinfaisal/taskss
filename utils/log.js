@@ -1,4 +1,4 @@
-const {createWriteStream} = require('fs');
+const { createWriteStream } = require('fs');
 
 const stream = createWriteStream('./.log');
 
