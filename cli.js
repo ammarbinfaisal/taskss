@@ -18,10 +18,14 @@ const cli = meow(
       --new,    -n  add a new task
       --edit,   -e  edit a task
       --delete, -d  delete a task
+	  --task,   -t  add a new task with the given title
+	  --group,  -g  group of the task being added by --task
 
     Examples
       $ taskss
-      $ taskss --new
+	  $ taskss --new
+	  $ taskss -e 1
+	  $ taskss -t "improve performance" -g coding
 `,
 	{
 		flags: {
