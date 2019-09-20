@@ -125,6 +125,7 @@ module.exports = () => {
 			process.stdout.removeListener('resize', resizeHandler);
 			edittask(linesMapppedToIndex[`${screen.y}`] + 1, 'list');
 		} else if (key && key.name === 'q') {
+			screen.clear();
 			process.exit();
 		}
 	}
