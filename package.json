@@ -15,15 +15,9 @@
     "xo": "*"
   },
   "scripts": {
-    "xo": "xo --fix --prettier",
-    "fix": "npm run xo",
+    "fix": "xo --fix --prettier",
     "prettier": "prettier --write *.js utils/* lib/*",
     "format": "npm run prettier"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run fix"
-    }
   },
   "bin": {
     "taskss": "./cli.js"
