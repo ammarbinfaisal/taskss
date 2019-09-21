@@ -100,6 +100,7 @@ module.exports = (index, context) => {
 			positionCursor(minXValue);
 			screen.write(_task[1][i] + ' ');
 			positionCursor(_x - 1);
+			saveTasks();
 		} else if (key && key.name === 'delete') {
 			if (_task[1][i]) maxXValues[_y]--;
 			_task[1][i] = _task[1][i].substring(0, _x - minXValue) + _task[1][i].substring(_x - minXValue + 1);
@@ -107,6 +108,7 @@ module.exports = (index, context) => {
 			screen.write(_task[1][i] + ' ');
 			// log('writing "' + _task[1][i] + '"<space>');
 			positionCursor(_x);
+			saveTasks();
 		} else if (key && key.name === 'escape' && context === 'list') {
 			screen.removeListener('keypress', keypressHandler);
 		} else if (chunk && chunk.length === 1 && !key.ctrl) {
