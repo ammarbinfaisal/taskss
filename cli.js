@@ -12,20 +12,20 @@ notifier.notify();
 const cli = meow(
 	`
     Usage
-      $ taskss <input>
+		$ taskss <options>
  
     Options
-      --new,    -n  add a new task
-      --edit,   -e  edit a task
-      --delete, -d  delete a task
-	  --task,   -t  add a new task with the given title
-	  --group,  -g  group of the task being added by --task
+		--new,    -n  add a new task
+		--edit,   -e  edit a task
+		--delete, -d  delete a task
+		--task,   -t  add a new task with the given title
+		--group,  -g  group of the task being added by --task
 
     Examples
-      $ taskss
-	  $ taskss --new
-	  $ taskss -e 1
-	  $ taskss -t "improve performance" -g coding
+		$ taskss          # opens in list mode
+		$ taskss -e 1     # opens in edit mode to edit 1st task
+		$ taskss --new    # add new task
+		$ taskss -t "fix #10" -g coding   # short way to add a task
 `,
 	{
 		flags: {
