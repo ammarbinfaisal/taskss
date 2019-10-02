@@ -11,9 +11,9 @@ module.exports = (index, context) => {
 	const task = tasks[index];
 
 	/*
-        Outer array for y index and the inner for
-        starting and ending x index
-     */
+		First array to containn keys of task object and
+		the second one to contain values
+	*/
 	const _task = [[], []];
 	if (!task) {
 		console.log(chalk.grey('\n\t:( no task with that index exists.\n'));
@@ -23,9 +23,8 @@ module.exports = (index, context) => {
 	screen.clear();
 
 	/*
-        First array to containn keys of task object and
-        the second one to contain values
-    */
+        To store max x value for the respective line (which is represented by array index here).
+	*/	
 	const maxXValues = [null, null];
 
 	screen.cursorTo(0, 2);
