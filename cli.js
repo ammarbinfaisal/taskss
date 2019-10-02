@@ -4,7 +4,7 @@
 const meow = require('meow');
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
-const tasks = require('.');
+const taskss = require('.');
 
 const notifier = updateNotifier({ pkg });
 notifier.notify();
@@ -55,8 +55,8 @@ const cli = meow(
 
 if (notifier.update) {
 	setTimeout(() => {
-		tasks(cli.input[0], cli.flags);
+		taskss(cli.input[0], cli.flags);
 	}, 3000);
 } else {
-	tasks(cli.input[0], cli.flags);
+	taskss(cli.input[0], cli.flags);
 }
