@@ -61,7 +61,7 @@ const init = () => {
 	if (stdin.isTTY) {
 		stdin.setRawMode(true);
 	} else {
-		console.log(chalk.grey("\n\tit's not tty\n"));
+		console.log(chalk.grey("\n\tNot running in a terminal\n"));
 		process.exit();
 	}
 
