@@ -1,7 +1,6 @@
 const Configstore = require('configstore');
 
 const chalk = require('chalk');
-// const log = require('../utils/log');
 
 const datastore = new Configstore('tasks');
 const screen = require('../utils/screen');
@@ -85,7 +84,6 @@ module.exports = (index, context) => {
 		const _x = screen.x;
 		const _y = screen.y;
 		const i = _y - 2;
-		// log(`x: ${_x} \t key: ${key.name} \t chunk: ${chunk}`);
 		if (key && key.name === 'up') {
 			positionCursor(undefined, _y - 1);
 		} else if (key && key.name === 'down') {
@@ -106,7 +104,6 @@ module.exports = (index, context) => {
 			_task[1][i] = _task[1][i].substring(0, _x - minXValue) + _task[1][i].substring(_x - minXValue + 1);
 			positionCursor(minXValue);
 			screen.write(_task[1][i] + ' ');
-			// log('writing "' + _task[1][i] + '"<space>');
 			positionCursor(_x);
 			saveTasks();
 		} else if (key && key.name === 'escape' && context === 'list') {
