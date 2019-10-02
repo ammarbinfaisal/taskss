@@ -17,10 +17,8 @@ module.exports = async (input, flags) => {
 		screen.init();
 		showTasksEditor(flags.edit);
 	} else if (flags.delete) {
-		if (!deleteTask(flags.delete)) {
+		if (!deleteTask(flags.delete)) 
 			console.log(chalk.grey('\n:( no task with that index exists.\n'));
-		}
-
 		process.exit();
 	} else {
 		screen.init();
