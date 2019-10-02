@@ -93,15 +93,21 @@ module.exports = (index, context) => {
 		} else if (key && key.name === 'right') {
 			positionCursor(_x + 1);
 		} else if (key && key.name === 'backspace') {
-			if (_task[1][i]) maxXValues[_y]--;
-			_task[1][i] = _task[1][i].substring(0, _x - minXValue - 1) + _task[1][i].substring(_x - minXValue);
+		    const edittedTask = _task[1][i].substring(0, _x - minXValue - 1) + _task[1][i].substring(_x - minXValue);
+			if (edittedTask !== _task[1][i]) {
+				maxXValues[_y]--;
+				_task[1][i] = edittedTask;
+			}
 			positionCursor(minXValue);
 			screen.write(_task[1][i] + ' ');
 			positionCursor(_x - 1);
 			saveTasks();
 		} else if (key && key.name === 'delete') {
-			if (_task[1][i]) maxXValues[_y]--;
-			_task[1][i] = _task[1][i].substring(0, _x - minXValue) + _task[1][i].substring(_x - minXValue + 1);
+			const edittedTask = _task[1][i].substring(0, _x - minXValue) + _task[1][i].substring(_x - minXValue + 1);
+			if (edittedTask !== _task[1][i]) {
+				maxXValues[_y]--;
+				_task[1][i] = edittedTask;
+			}
 			positionCursor(minXValue);
 			screen.write(_task[1][i] + ' ');
 			positionCursor(_x);
