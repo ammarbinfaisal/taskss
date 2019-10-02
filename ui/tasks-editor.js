@@ -1,8 +1,8 @@
-const Configstore = require('configstore');
+const Store = require('configstore');
 
 const chalk = require('chalk');
 
-const datastore = new Configstore('tasks');
+const datastore = new Store('tasks');
 const screen = require('../utils/screen');
 
 module.exports = (index, context) => {
